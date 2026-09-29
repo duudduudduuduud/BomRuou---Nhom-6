@@ -4,11 +4,11 @@
 
 | STT | Họ và Tên | Mã Sinh Viên | Vai trò / Nhiệm vụ chính |
 | :---: | :--- | :---: | :--- |
-| 1 | [Hoàng Trường Huy] | [BIT250172] | Trưởng nhóm, Xây dựng mô hình Machine Learning |
-| 2 | [Khúc Đình Hưng] | [BIT253642] | Tiền xử lý dữ liệu & Phân tích khám phá (EDA) |
-| 3 | [Nguyễn Minh Hiếu] | [BIT250135] | Đánh giá, kiểm thử tối ưu hóa mô hình & Viết tài liệu |
-| 4 | [Hoàng Nguyên Khôi] | [BIT250199] | Phát triển giao diện Demo / API triển khai |
-| 5 | [Trần Đăng Khôi] | [BIT250201] | Chuyên viên Dữ liệu rượu & Giải thích mô hình (XAI / Domain Specialist) |
+| 1 | Hoàng Trường Huy | BIT250172 | Trưởng nhóm, Xây dựng mô hình Machine Learning |
+| 2 | Khúc Đình Hưng | BIT253642 | Tiền xử lý dữ liệu & Phân tích khám phá (EDA) |
+| 3 | Nguyễn Minh Hiếu | BIT250135 | Đánh giá, kiểm thử tối ưu hóa mô hình & Viết tài liệu |
+| 4 | Hoàng Nguyên Khôi | BIT250199 | Phát triển giao diện Demo / API triển khai |
+| 5 | Trần Đăng Khôi | BIT250201 | Chuyên viên Dữ liệu rượu & Giải thích mô hình (XAI / Domain Specialist) |
 
 ---
 
