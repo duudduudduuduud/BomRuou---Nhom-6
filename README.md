@@ -68,15 +68,11 @@ Tập dữ liệu nền tảng sử dụng trong nghiên cứu khởi tạo đư
 2. **Kỹ thuật đặc trưng (Feature Engineering)**:
    * Chuyển bài toán dự đoán điểm số liên tục (Regression) sang bài toán phân loại nhị phân/đa lớp (Classification: Ví dụ: `quality < 5` là Kém, `5 - 6` là Trung bình, `>= 7` là Tốt).
    * Cân bằng tập dữ liệu bằng kỹ thuật SMOTE nếu có hiện tượng mất cân bằng lớp.
-3. **Huấn luyện và Tối ưu mô hình**:
-   * Thử nghiệm nhiều thuật toán phân loại và hồi quy.
-   * Tinh chỉnh siêu tham số (Hyperparameter Tuning) thông qua `GridSearchCV` hoặc `RandomizedSearchCV` với phương pháp K-Fold Cross-Validation.
-4. **Đánh giá và Đối sánh**:
+3. **Đánh giá và Đối sánh**:
    * Đánh giá hiệu suất phân loại qua Accuracy, Precision, Recall, F1-Score và ROC-AUC.
    * Phân tích mức độ quan trọng của đặc trưng (Feature Importance) để rút ra các chỉ số ảnh hưởng lớn nhất đến vị giác rượu vang.
-5. **Đóng gói và Triển khai**:
+4. **Đóng gói và Triển khai**:
    * Lưu trữ mô hình tối ưu bằng `joblib` hoặc `pickle`.
-   * Xây dựng giao diện web cho phép nhập các chỉ số hóa lý và trả về dự đoán tức thì.
 
 ---
 
