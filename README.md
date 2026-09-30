@@ -1,6 +1,6 @@
 # Nhóm 6 - Dự Án Phân Loại Và Dự Đoán Chất Lượng Rượu Vang (Wine Quality Prediction)
 
-## 1. Thành Viên Nhóm
+## Thành Viên Nhóm
 
 | STT | Họ và Tên | Mã Sinh Viên | Vai trò / Nhiệm vụ chính |
 | :---: | :--- | :---: | :--- |
@@ -12,7 +12,7 @@
 
 ---
 
-## 2. Giới Thiệu & Mục Tiêu Triển Khai
+## Giới Thiệu & Mục Tiêu Triển Khai
 
 * **Tên đề tài**: Phân loại và dự đoán chất lượng các loại rượu vang của Việt Nam nói riêng và thế giới nói chung.
 * **Mục tiêu**:
@@ -22,7 +22,7 @@
 
 ---
 
-## 3. Mô Tả Dữ Liệu
+## Mô Tả Dữ Liệu
 
 Tập dữ liệu nền tảng sử dụng trong nghiên cứu khởi tạo được trích xuất từ tệp `winequality-red.csv` gồm 12 thuộc tính hóa lý đo lường trên các mẫu rượu vang đỏ:
 
@@ -43,7 +43,7 @@ Tập dữ liệu nền tảng sử dụng trong nghiên cứu khởi tạo đư
 
 ---
 
-## 4. Tech Stack Đề Xuất
+## Tech Stack
 
 * **Ngôn ngữ lập trình**: Python 3.9+
 * **Thư viện xử lý & phân tích dữ liệu**:
@@ -59,7 +59,7 @@ Tập dữ liệu nền tảng sử dụng trong nghiên cứu khởi tạo đư
 
 ---
 
-## 5. Kế Hoạch Triển Khai Dự Án
+## Kế Hoạch Triển Khai Dự Án
 
 1. **Khám phá và Tiền xử lý dữ liệu (Data Preprocessing & EDA)**:
    * Kiểm tra giá trị rỗng (NaN/Missing values), phát hiện và xử lý ngoại lai (Outliers).
@@ -80,7 +80,7 @@ Tập dữ liệu nền tảng sử dụng trong nghiên cứu khởi tạo đư
 
 ---
 
-## 6. Chức Năng Chính Của Hệ Thống
+## Chức Năng Chính Của Hệ Thống
 
 * **Phân tích thăm dò tự động**: Hiển thị biểu đồ phân phối đặc trưng và bản đồ nhiệt độ tương quan của các chỉ số hóa lý.
 * **Dự đoán chất lượng theo mẫu**: Người dùng nhập thủ công 11 chỉ số hóa lý của một chai rượu bất kỳ để hệ thống xếp loại chất lượng tương ứng.
@@ -88,23 +88,6 @@ Tập dữ liệu nền tảng sử dụng trong nghiên cứu khởi tạo đư
 * **Khuyến nghị điều chỉnh thành phần**: Đưa ra nhận xét các thành phần cần cải thiện (ví dụ: giảm độ axit bay hơi, điều chỉnh nồng độ cồn) để nâng hạng chất lượng sản phẩm.
 
 ---
-
-## 7. Cấu Trúc Thư Mục Dự Án
-
-```text
-├── data/
-│   ├── raw/                   # Dữ liệu gốc (winequality-red.csv, dữ liệu vang Việt Nam bổ sung)
-│   └── processed/             # Dữ liệu đã làm sạch và chuẩn hóa
-├── notebooks/
-│   ├── 01_exploratory_data_analysis.ipynb   # Phân tích EDA, biểu đồ tương quan
-│   └── 02_model_training.ipynb              # Huấn luyện và đánh giá mô hình
-├── src/
-│   ├── __init__.py
-│   ├── data_loader.py         # Module đọc và tải dữ liệu
-│   ├── preprocessor.py        # Module xử lý dữ liệu và scaling
-│   └── train.py               # Script huấn luyện và lưu trữ mô hình
-├── models/
-│   └── best_model.pkl         # Tệp mô hình tốt nhất sau khi tinh chỉnh
 ├── app/
 │   ├── app.py                 # File chạy ứng dụng giao diện (Streamlit/Gradio)
 │   └── utils.py               # Hàm phụ trợ dự đoán cho giao diện
