@@ -86,11 +86,3 @@ Tập dữ liệu nền tảng sử dụng trong nghiên cứu khởi tạo đư
 * **Dự đoán chất lượng theo mẫu**: Người dùng nhập thủ công 11 chỉ số hóa lý của một chai rượu bất kỳ để hệ thống xếp loại chất lượng tương ứng.
 * **Dự đoán hàng loạt (Batch Prediction)**: Hỗ trợ tải lên tệp CSV/Excel chứa danh sách nhiều lô rượu để xuất kết quả phân loại đồng loạt.
 * **Khuyến nghị điều chỉnh thành phần**: Đưa ra nhận xét các thành phần cần cải thiện (ví dụ: giảm độ axit bay hơi, điều chỉnh nồng độ cồn) để nâng hạng chất lượng sản phẩm.
-
----
-├── app/
-│   ├── app.py                 # File chạy ứng dụng giao diện (Streamlit/Gradio)
-│   └── utils.py               # Hàm phụ trợ dự đoán cho giao diện
-├── requirements.txt           # Danh mục thư viện và phiên bản cần thiết
-├── .gitignore
-└── README.md
