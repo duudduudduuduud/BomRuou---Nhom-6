@@ -14,11 +14,11 @@
 
 ## Giới Thiệu & Mục Tiêu Triển Khai
 
-* **Tên đề tài**: Phân loại và dự đoán chất lượng các loại rượu vang của Việt Nam nói riêng và thế giới nói chung.
+* **Dataset**: [Wine Quality](https://archive.ics.uci.edu/dataset/186/wine+quality)
+  * Nguồn phụ: [Kaggle - Red Wine Quality by UCI Machine Learning](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
 * **Mục tiêu**:
   * Ứng dụng các thuật toán Học máy (Machine Learning) để nhận diện mối tương quan giữa các thành phần hóa lý và đánh giá cảm quan chất lượng rượu.
-  * Dự đoán chính xác điểm số chất lượng hoặc phân loại hạng rượu (Kém, Trung bình, Thượng hạng), hỗ trợ các cơ sở sản xuất rượu vang tối ưu hóa quy trình lên men và phối trộn.
-  * Mở rộng đối sánh giữa các dòng vang tiêu chuẩn quốc tế và các dòng vang đặc trưng của Việt Nam (vang Đà Lạt, vang nho Ninh Thuận...).
+  * Dự đoán chính xác điểm số chất lượng hoặc phân loại hạng rượu (Kém, Trung bình, Thượng hạng).
 
 ---
 
