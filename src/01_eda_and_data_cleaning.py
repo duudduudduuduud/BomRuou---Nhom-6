@@ -4,14 +4,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from pathlib import Path
 from sklearn.preprocessing import StandardScaler
 
 warnings.filterwarnings('ignore')
 
+# Đảm bảo đường dẫn luôn trỏ về thư mục gốc dự án
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if not Path('data/raw/winequality-red.csv').exists() and (PROJECT_ROOT / 'data/raw/winequality-red.csv').exists():
+    os.chdir(PROJECT_ROOT)
+
 # ---------------------------------------------------------
 # TẠO CÁC THƯ MỤC CẦN THIẾT
 # ---------------------------------------------------------
-os.makedirs('assets', exist_ok=True)
+os.makedirs('assets_bieu_do', exist_ok=True)
 os.makedirs('data/processed', exist_ok=True)
 
 # Cấu hình giao diện đồ thị
@@ -61,8 +67,8 @@ for i, col in enumerate(features, 1):
     plt.tight_layout()
 
 # Save Figure 1
-plt.savefig('assets/01_feature_boxplots.png', bbox_inches='tight', dpi=300)
-plt.show()
+plt.savefig('assets_bieu_do/01_feature_boxplots.png', bbox_inches='tight', dpi=300)
+plt.close()
 
 # Hàm tính số lượng Outliers theo phương pháp IQR (Interquartile Range)
 def detect_outliers_iqr(data, column):
@@ -111,8 +117,8 @@ for p in ax.patches:
                 textcoords='offset points')
 
 # Save Figure 2
-plt.savefig('assets/02_quality_distribution.png', bbox_inches='tight', dpi=300)
-plt.show()
+plt.savefig('assets_bieu_do/02_quality_distribution.png', bbox_inches='tight', dpi=300)
+plt.close()
 
 # ---------------------------------------------------------
 # 3. MA TRẬN TƯƠNG QUAN & LƯU HÌNH 3
@@ -124,8 +130,8 @@ sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm', linewidt
 plt.title('Ma trận Tương quan Tương hỗ (Correlation Heatmap)', fontsize=14)
 
 # Save Figure 3
-plt.savefig('assets/03_correlation_heatmap.png', bbox_inches='tight', dpi=300)
-plt.show()
+plt.savefig('assets_bieu_do/03_correlation_heatmap.png', bbox_inches='tight', dpi=300)
+plt.close()
 
 # ---------------------------------------------------------
 # 4. MỨC ĐỘ TƯƠNG QUAN VỚI QUALITY & LƯU HÌNH 4
@@ -139,8 +145,8 @@ plt.ylabel('Hệ số tương quan Pearson')
 plt.axhline(0, color='black', linewidth=0.8)
 
 # Save Figure 4
-plt.savefig('assets/04_correlation_with_quality.png', bbox_inches='tight', dpi=300)
-plt.show()
+plt.savefig('assets_bieu_do/04_correlation_with_quality.png', bbox_inches='tight', dpi=300)
+plt.close()
 
 # ---------------------------------------------------------
 # 5. CÁC HÓA CHẤT CHÍNH VS QUALITY & LƯU HÌNH 5
@@ -166,8 +172,8 @@ axes[1, 1].set_title('Citric Acid vs Quality')
 plt.tight_layout()
 
 # Save Figure 5
-plt.savefig('assets/05_key_chemical_features_vs_quality.png', bbox_inches='tight', dpi=300)
-plt.show()
+plt.savefig('assets_bieu_do/05_key_chemical_features_vs_quality.png', bbox_inches='tight', dpi=300)
+plt.close()
 
 # ---------------------------------------------------------
 # CHUẨN HÓA & LƯU TẬP DỮ LIỆU ĐÃ XỬ LÝ
@@ -193,4 +199,4 @@ cleaned_data_path = os.path.join('data/processed', 'winequality-red-cleaned.csv'
 df_processed.to_csv(cleaned_data_path, index=False)
 
 print(f"Đã lưu thành công tập dữ liệu sạch tại: {cleaned_data_path}")
-print("Tất cả hình ảnh đã được lưu vào thư mục 'assets/'!")
+print("Tất cả hình ảnh đã được lưu vào thư mục 'assets_bieu_do/'!")
