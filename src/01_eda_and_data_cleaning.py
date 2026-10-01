@@ -11,7 +11,7 @@ warnings.filterwarnings('ignore')
 # ---------------------------------------------------------
 # TẠO CÁC THƯ MỤC CẦN THIẾT
 # ---------------------------------------------------------
-os.makedirs('images', exist_ok=True)
+os.makedirs('assets', exist_ok=True)
 os.makedirs('data/processed', exist_ok=True)
 
 # Cấu hình giao diện đồ thị
@@ -61,7 +61,7 @@ for i, col in enumerate(features, 1):
     plt.tight_layout()
 
 # Save Figure 1
-plt.savefig('images/01_feature_boxplots.png', bbox_inches='tight', dpi=300)
+plt.savefig('assets/01_feature_boxplots.png', bbox_inches='tight', dpi=300)
 plt.show()
 
 # Hàm tính số lượng Outliers theo phương pháp IQR (Interquartile Range)
@@ -111,7 +111,7 @@ for p in ax.patches:
                 textcoords='offset points')
 
 # Save Figure 2
-plt.savefig('images/02_quality_distribution.png', bbox_inches='tight', dpi=300)
+plt.savefig('assets/02_quality_distribution.png', bbox_inches='tight', dpi=300)
 plt.show()
 
 # ---------------------------------------------------------
@@ -124,7 +124,7 @@ sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm', linewidt
 plt.title('Ma trận Tương quan Tương hỗ (Correlation Heatmap)', fontsize=14)
 
 # Save Figure 3
-plt.savefig('images/03_correlation_heatmap.png', bbox_inches='tight', dpi=300)
+plt.savefig('assets/03_correlation_heatmap.png', bbox_inches='tight', dpi=300)
 plt.show()
 
 # ---------------------------------------------------------
@@ -139,7 +139,7 @@ plt.ylabel('Hệ số tương quan Pearson')
 plt.axhline(0, color='black', linewidth=0.8)
 
 # Save Figure 4
-plt.savefig('images/04_correlation_with_quality.png', bbox_inches='tight', dpi=300)
+plt.savefig('assets/04_correlation_with_quality.png', bbox_inches='tight', dpi=300)
 plt.show()
 
 # ---------------------------------------------------------
@@ -166,7 +166,7 @@ axes[1, 1].set_title('Citric Acid vs Quality')
 plt.tight_layout()
 
 # Save Figure 5
-plt.savefig('images/05_key_chemical_features_vs_quality.png', bbox_inches='tight', dpi=300)
+plt.savefig('assets/05_key_chemical_features_vs_quality.png', bbox_inches='tight', dpi=300)
 plt.show()
 
 # ---------------------------------------------------------
@@ -193,4 +193,4 @@ cleaned_data_path = os.path.join('data/processed', 'winequality-red-cleaned.csv'
 df_processed.to_csv(cleaned_data_path, index=False)
 
 print(f"Đã lưu thành công tập dữ liệu sạch tại: {cleaned_data_path}")
-print("Tất cả hình ảnh đã được lưu vào thư mục 'images/'!")
+print("Tất cả hình ảnh đã được lưu vào thư mục 'assets/'!")
