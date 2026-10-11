@@ -66,7 +66,7 @@ Tập dữ liệu nền tảng sử dụng trong nghiên cứu khởi tạo đư
    * Trực quan hóa tương quan giữa nồng độ cồn, độ pH, độ axit với điểm số chất lượng (`quality`).
    * Chuẩn hóa thang đo các thuộc tính bằng `StandardScaler`.
 2. **Kỹ thuật đặc trưng (Feature Engineering)**:
-   * Chuyển bài toán dự đoán điểm số liên tục (Regression) sang bài toán phân loại nhị phân/đa lớp (Classification: Ví dụ: `quality < 4` là Kém, `5 - 6` là Trung bình, `>= 7` là Tốt).
+   * Chuyển bài toán dự đoán điểm số liên tục (Regression) sang bài toán phân loại nhị phân/đa lớp (Classification: Ví dụ: `quality < 4` là Kém, `5 - 6` là Tốt và Đạt chuẩn).
    * Cân bằng tập dữ liệu bằng kỹ thuật SMOTE nếu có hiện tượng mất cân bằng lớp.
 3. **Đánh giá và Đối sánh**:
    * Đánh giá hiệu suất phân loại qua Accuracy, Precision, Recall, F1-Score và ROC-AUC.
