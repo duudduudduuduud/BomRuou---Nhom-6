@@ -14,7 +14,6 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 
-# Import nội bộ
 try:
     from src.data_loader import doc_du_lieu_chuan
     from src.cleaner import CAC_COT_HOA_LY
@@ -22,7 +21,6 @@ except ImportError:
     from data_loader import doc_du_lieu_chuan
     from cleaner import CAC_COT_HOA_LY
 
-# Đường dẫn thư mục lưu biểu đồ
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BIEU_DO_DIR = PROJECT_ROOT / "bieu_do"
 
@@ -68,7 +66,6 @@ def ve_phan_phoi_chat_luong(
 
     fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
 
-    # Đồ thị 1: Điểm chất lượng chi tiết (3-9) theo từng loại rượu
     palette_ruou = {"Vang đỏ": "#8B0000", "Vang trắng": "#DAA520"}
     sns.countplot(
         data=df,
@@ -84,7 +81,6 @@ def ve_phan_phoi_chat_luong(
     axes[0].set_ylabel("Số lượng mẫu rượu")
     axes[0].legend(title="Loại rượu")
 
-    # Hiển thị số lượng trên cột
     for p in axes[0].patches:
         height = p.get_height()
         if height > 0:
@@ -98,7 +94,6 @@ def ve_phan_phoi_chat_luong(
                 textcoords="offset points"
             )
 
-    # Đồ thị 2: Biểu đồ tròn tỷ lệ 3 bậc chất lượng
     dem_bac = df["bac_chat_luong"].value_counts()[["Kém", "Trung bình", "Thượng hạng"]]
     mau_sac_bac = ["#E74C3C", "#3498DB", "#2ECC71"]
     explode = (0.05, 0, 0.05)
@@ -240,7 +235,6 @@ def ve_yeu_to_quyet_dinh_chat_luong(
     fig, axes = plt.subplots(2, 2, figsize=(15, 11))
     palette_bac = {"Kém": "#E74C3C", "Trung bình": "#3498DB", "Thượng hạng": "#2ECC71"}
 
-    # 1. Độ cồn theo 3 bậc chất lượng
     sns.violinplot(
         data=df,
         x="bac_chat_luong",
@@ -255,7 +249,6 @@ def ve_yeu_to_quyet_dinh_chat_luong(
     axes[0, 0].set_xlabel("Bậc chất lượng")
     axes[0, 0].set_ylabel("Độ cồn (%)")
 
-    # 2. Axit bay hơi theo 3 bậc chất lượng
     sns.boxplot(
         data=df,
         x="bac_chat_luong",
@@ -270,7 +263,6 @@ def ve_yeu_to_quyet_dinh_chat_luong(
     axes[0, 1].set_xlabel("Bậc chất lượng")
     axes[0, 1].set_ylabel("Axit bay hơi (g/dm³)")
 
-    # 3. Tỉ trọng theo 3 bậc chất lượng
     sns.boxplot(
         data=df,
         x="bac_chat_luong",
@@ -285,7 +277,6 @@ def ve_yeu_to_quyet_dinh_chat_luong(
     axes[1, 0].set_xlabel("Bậc chất lượng")
     axes[1, 0].set_ylabel("Tỉ trọng (g/cm³)")
 
-    # 4. Sunfat theo 3 bậc chất lượng
     sns.violinplot(
         data=df,
         x="bac_chat_luong",
@@ -335,7 +326,6 @@ def ve_phan_phoi_11_chi_so_hoa_ly(
         axes[idx].set_xlabel(cot)
         axes[idx].set_ylabel("Tần suất")
 
-    # Ẩn ô biểu đồ thứ 12 dư thừa (vì có 11 cột)
     fig.delaxes(axes[11])
 
     plt.suptitle("PHÂN BỐ TẦN SUẤT 11 CHỈ SỐ HÓA LÝ RƯỢU VANG (SAU WINSORIZATION)", fontsize=16, fontweight="bold", y=1.01)
@@ -368,7 +358,6 @@ def ve_bieu_do_phan_phoi_cot_hang(
     if chi_loc_gia_tri_it:
         df_plot = df_plot[[col for col in df_plot if 1 < nunique[col] < 50]]
     else:
-        # Giữ lại các cột có nhiều hơn 1 giá trị
         df_plot = df_plot[[col for col in df_plot if nunique[col] > 1]]
 
     n_row, n_col = df_plot.shape
@@ -467,7 +456,6 @@ def ve_bieu_do_phan_tan_va_mat_do(
         column_names = column_names[:so_cot_toi_da]
     df_plot = df_num[column_names]
 
-    # Nếu tập dữ liệu lớn, lấy mẫu ngẫu nhiên (ví dụ 1000 mẫu như starter notebook) để vẽ KDE nhanh
     if so_mau_lay is not None and len(df_plot) > so_mau_lay:
         df_plot = df_plot.sample(n=so_mau_lay, random_state=42)
 
@@ -551,7 +539,6 @@ def ve_cac_dac_trung_chinh_vs_quality_boxplots(
     thu_muc = dam_bao_thu_muc_bieu_do(thu_muc_luu)
     duong_dan_file = thu_muc / "05_key_chemical_features_vs_quality.png"
 
-    # Nhận diện tên cột tiếng Anh hoặc tiếng Việt
     col_q = "quality" if "quality" in df.columns else "diem_chat_luong"
     col_alc = "alcohol" if "alcohol" in df.columns else "do_con"
     col_va = "volatile acidity" if "volatile acidity" in df.columns else "axit_bay_hoi"
@@ -612,8 +599,6 @@ def ve_tat_ca_boxplots(
     print(f"[XUẤT BIỂU ĐỒ] Đã lưu: {duong_dan_file}")
     return duong_dan_file
 
-
-# Đặt alias tương thích với hàm trong starter notebook
 plotPerColumnDistribution = ve_bieu_do_phan_phoi_cot_hang
 plotCorrelationMatrix = ve_ma_tran_tuong_quan_matshow
 plotScatterMatrix = ve_bieu_do_phan_tan_va_mat_do
@@ -639,21 +624,17 @@ def ve_tat_ca_bieu_do(
 
     print("\n[INFO] Đang tiến hành tạo toàn bộ các biểu đồ phân tích EDA...")
     danh_sach_file = []
-    # 5 biểu đồ phân tích chuyên đề
     danh_sach_file.append(ve_phan_phoi_chat_luong(df, thu_muc_luu))
     danh_sach_file.append(ve_so_sanh_loai_ruou(df, thu_muc_luu))
     danh_sach_file.append(ve_ma_tran_tuong_quan(df, thu_muc_luu))
     danh_sach_file.append(ve_yeu_to_quyet_dinh_chat_luong(df, thu_muc_luu))
     danh_sach_file.append(ve_phan_phoi_11_chi_so_hoa_ly(df, thu_muc_luu))
-
-    # 3 biểu đồ chuẩn theo phong cách Kaggle starter-red-wine-quality
     danh_sach_file.append(ve_bieu_do_phan_phoi_cot_hang(df, n_graph_shown=12, n_graph_per_row=4, thu_muc_luu=thu_muc_luu))
     danh_sach_file.append(ve_ma_tran_tuong_quan_matshow(df, graph_width=10, ten_file="duleu_chuan", thu_muc_luu=thu_muc_luu))
     danh_sach_file.append(ve_bieu_do_phan_tan_va_mat_do(df, plot_size=18, text_size=9, so_cot_toi_da=10, so_mau_lay=1000, thu_muc_luu=thu_muc_luu))
 
     print(f"[HOÀN TẤT] Đã tạo thành công {len(danh_sach_file)} biểu đồ tại thư mục bieu_do/\n")
     return danh_sach_file
-
 
 
 if __name__ == "__main__":
