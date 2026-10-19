@@ -10,13 +10,11 @@ from typing import Optional
 import urllib.request
 import pandas as pd
 
-# Đường dẫn mặc định của dự án
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_PATH = DATA_DIR / "chatluong_ruougoc.csv"
 CLEANED_DATA_PATH = DATA_DIR / "duleu_chuan.feather"
 
-# URL kho dữ liệu UCI
 URL_VANG_DO = "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
 URL_VANG_TRANG = "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv"
 
@@ -39,25 +37,21 @@ def tai_du_lieu_uci(duong_dan_luu: Optional[Path] = None, bat_buoc_tai_lai: bool
     duong_dan_luu = Path(duong_dan_luu)
     duong_dan_luu.parent.mkdir(parents=True, exist_ok=True)
 
-    # Kiểm tra nếu file đã có dữ liệu hợp lệ (> 0 bytes) và không bắt buộc tải lại
     if duong_dan_luu.exists() and duong_dan_luu.stat().st_size > 0 and not bat_buoc_tai_lai:
         print(f"[INFO] Dữ liệu gốc đã tồn tại tại: {duong_dan_luu}. Đang đọc từ ổ đĩa...")
         return doc_du_lieu_goc(duong_dan_luu)
 
     print("[INFO] Đang tải dữ liệu vang đỏ và vang trắng từ UCI Machine Learning Repository...")
 
-    # Đọc dữ liệu từ URL (UCI dùng dấu chấm phẩy ';' làm dấu phân cách)
     df_do = pd.read_csv(URL_VANG_DO, sep=";")
     df_do["loai_ruou"] = "Vang đỏ"
 
     df_trang = pd.read_csv(URL_VANG_TRANG, sep=";")
     df_trang["loai_ruou"] = "Vang trắng"
 
-    # Gộp 2 tập dữ liệu
     df_gop = pd.concat([df_do, df_trang], ignore_index=True)
     print(f"[INFO] Tải thành công! Vang đỏ: {len(df_do)} mẫu, Vang trắng: {len(df_trang)} mẫu. Tổng: {len(df_gop)} mẫu.")
 
-    # Lưu ra file CSV gốc với encoding utf-8-sig để hỗ trợ tiếng Việt trong Excel
     df_gop.to_csv(duong_dan_luu, index=False, encoding="utf-8-sig")
     print(f"[INFO] Đã lưu dữ liệu gốc vào: {duong_dan_luu}")
 
@@ -91,7 +85,6 @@ def doc_du_lieu_goc(duong_dan: Optional[Path] = None) -> pd.DataFrame:
         print("[CẢNH BÁO] File dữ liệu gốc không tồn tại hoặc rỗng. Tiến hành tự động tải từ UCI...")
         return tai_du_lieu_uci(duong_dan)
 
-    # Đọc với dự phòng delimiter
     try:
         df = pd.read_csv(duong_dan, encoding="utf-8-sig")
         if df.shape[1] == 1:
@@ -137,12 +130,10 @@ def luu_du_lieu_chuan(df: pd.DataFrame, duong_dan: Optional[Path] = None) -> Pat
     duong_dan = Path(duong_dan)
     duong_dan.parent.mkdir(parents=True, exist_ok=True)
 
-    # Đảm bảo reset_index trước khi lưu feather
     df_luu = df.reset_index(drop=True)
     df_luu.to_feather(duong_dan)
     print(f"[INFO] Đã lưu dữ liệu chuẩn hóa ({len(df_luu)} dòng, {df_luu.shape[1]} cột) vào: {duong_dan}")
 
-    # Đồng bộ sang data/processed nếu duong_dan là data/duleu_chuan.feather
     processed_path = DATA_DIR / "processed" / "duleu_chuan.feather"
     if duong_dan.resolve() != processed_path.resolve():
         try:
