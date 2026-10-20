@@ -1,5 +1,7 @@
 # Nhóm 6 - Dự Án Phân Loại Và Dự Đoán Chất Lượng Rượu Vang (Wine Quality Prediction)
 
+> **Công cụ luyện thuyết trình Khoa học dữ liệu:** [Mở bài trắc nghiệm tương tác](quiz_khoa_hoc_du_lieu.html) — gồm câu hỏi lý thuyết, câu hỏi bám sát code repo, giải thích đáp án và bảng tự kiểm chứng phương pháp đã áp dụng.
+
 ## Thành Viên Nhóm
 
 | STT | Họ và Tên | Mã Sinh Viên | Vai trò / Nhiệm vụ chính |
