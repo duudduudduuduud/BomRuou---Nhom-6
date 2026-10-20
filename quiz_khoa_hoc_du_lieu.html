@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bài luyện trắc nghiệm Khoa học dữ liệu và vấn đáp dự án phân tích chất lượng rượu vang của Nhóm 6.">
+<title>Luyện thuyết trình Khoa học dữ liệu | Nhóm 6</title>
+<style>
+:root{--ink:#17212f;--muted:#586779;--line:#dbe3eb;--paper:#f5f7fa;--panel:#fff;--brand:#145da0;--brand2:#0c4274;--good:#e8f6ed;--goodink:#17683a;--bad:#fff0ed;--badink:#a42a1b;--hint:#eef5fc}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:36px 20px 28px;background:#102c46;color:white}header .wrap,main{max-width:1000px;margin:0 auto}header p{color:#dbe8f4;max-width:780px;margin-bottom:0}h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15;margin:.25rem 0 1rem}h2{font-size:1.45rem;line-height:1.25;margin:0 0 10px}h3{font-size:1.04rem;line-height:1.45;margin:8px 0 14px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-size:.78rem;color:#b8d8f4}
+main{padding:22px 16px 56px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0 0 18px;box-shadow:0 3px 12px #122c4608}.intro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:16px}.mini{background:#f0f5fa;border-radius:12px;padding:13px}.mini strong{display:block}.muted,.small{color:var(--muted)}.small{font-size:.9rem}.pill{display:inline-block;border-radius:999px;background:#e7f1fb;color:var(--brand2);padding:3px 10px;font-size:.8rem;font-weight:700}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}button{border:0;border-radius:10px;background:var(--brand);color:white;padding:11px 16px;font:inherit;font-weight:700;cursor:pointer}button:hover{background:var(--brand2)}button.secondary{background:#e8edf3;color:var(--ink)}button.secondary:hover{background:#d9e2ec}
+.question{border:1px solid var(--line);border-radius:13px;padding:17px;margin:14px 0;background:#fff}.qmeta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.82rem}.topic{font-weight:700;color:var(--brand)}.option{display:flex;gap:10px;align-items:flex-start;padding:10px 11px;border:1px solid #e3e8ef;border-radius:9px;margin:7px 0;cursor:pointer}.option:hover{background:#f6f9fc}.option input{margin-top:5px;accent-color:var(--brand);flex-shrink:0}.question.correct{border-color:#73bd8b;background:#fbfffc}.question.wrong{border-color:#e2a097;background:#fffdfc}.feedback{margin-top:12px;padding:12px;border-radius:9px;font-size:.94rem}.feedback.good{background:var(--good);color:var(--goodink)}.feedback.bad{background:var(--bad);color:var(--badink)}#scorebox{display:none;margin-top:14px;padding:16px;background:var(--hint);border-radius:12px}.score-big{font-size:1.6rem;font-weight:800;color:var(--brand)}.progress{height:8px;border-radius:99px;background:#dce6f0;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;width:0;background:var(--brand);transition:width .2s}
+.audit-item{padding:16px 0;border-top:1px solid var(--line)}.audit-item:first-of-type{border-top:0}.audit-title{font-weight:750;margin-bottom:4px}.evidence{background:#f3f6f9;border-left:3px solid #9bbbd8;padding:9px 12px;margin:8px 0 12px;font-size:.91rem;color:#34475a}.fieldrow{display:grid;grid-template-columns:minmax(220px,1fr) minmax(220px,1fr);gap:12px}.field label{display:block;font-weight:700;font-size:.9rem;margin-bottom:5px}select,input[type=text],textarea{width:100%;font:inherit;padding:10px;border:1px solid #cbd5df;border-radius:9px;background:white;color:var(--ink)}textarea{min-height:68px;resize:vertical}.callout{background:#fff7df;border-left:4px solid #d4a328;padding:13px 15px;border-radius:8px}.footer{font-size:.86rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:18px}a{color:#135b99;overflow-wrap:anywhere}
+@media(max-width:600px){.panel{padding:16px}.fieldrow{grid-template-columns:1fr}header{padding-top:26px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="eyebrow">INFO3020 · luyện kiến thức + vấn đáp</div>
+<h1>Trắc nghiệm Khoa học dữ liệu</h1>
+<p>Ôn kiến thức nền tảng, luyện giải thích bằng lời và kiểm tra những gì repo Nhóm 6 thực sự có trong mã nguồn. Bài gồm câu hỏi lý thuyết, câu hỏi đọc code dự án và bảng tự kiểm chứng bằng chứng thực thi.</p>
+</div></header>
+<main>
+<section class="panel">
+<h2>Cách sử dụng</h2>
+<p>Hãy làm phần trắc nghiệm trước khi xem giải thích. Điểm số chỉ đo phần trắc nghiệm; năng lực thuyết trình còn phụ thuộc việc bạn giải thích được <strong>lý do chọn phương pháp, vị trí code, tham số và giới hạn của kết luận</strong>.</p>
+<div class="intro-grid">
+<div class="mini"><strong>Phần A · Kiến thức</strong><span class="small">Chất lượng dữ liệu, thống kê, biến đổi, mô hình hóa và biểu đồ.</span></div>
+<div class="mini"><strong>Phần B · Repo</strong><span class="small">Câu hỏi dựa trên mã nguồn của dự án rượu vang.</span></div>
+<div class="mini"><strong>Phần C · Vấn đáp</strong><span class="small">Tự xác nhận cách áp dụng và ghi bằng chứng code.</span></div>
+</div>
+<div class="actions"><button id="startBtn" type="button">Bắt đầu / đến phần trắc nghiệm</button><button id="resetBtn" type="button" class="secondary">Làm lại bài</button></div>
+</section>
+
+<section class="panel" id="quizPanel">
+<h2>Phần A — Trắc nghiệm</h2>
+<p class="muted">Mỗi câu chỉ chọn một đáp án tốt nhất. Chấm điểm xong, từng câu sẽ hiện đáp án và giải thích.</p>
+<div class="progress" aria-label="Tiến độ làm bài"><span id="progressBar"></span></div>
+<p class="small" id="progressText">Đã trả lời 0 câu.</p>
+<div id="questions"></div>
+<div class="actions"><button id="gradeBtn" type="button">Chấm điểm và xem giải thích</button><button id="clearBtn" type="button" class="secondary">Xóa lựa chọn</button></div>
+<div id="scorebox" role="status" aria-live="polite"></div>
+</section>
+
+<section class="panel" id="auditPanel">
+<h2>Phần B — Kiểm chứng điều đã áp dụng trong repo</h2>
+<p>Đây là bảng kiểm toán giúp phân biệt <strong>có code</strong>, <strong>có trong notebook</strong>, <strong>được gọi trong pipeline chính</strong> và <strong>mới ghi trong README/kế hoạch</strong>. Nội dung “bằng chứng hiện thấy” là kết quả đọc repo; hãy chọn trạng thái phản ánh đúng quá trình thực hiện thực tế của nhóm, và bổ sung file/hàm/dòng code nếu cần.</p>
+<div class="callout"><strong>Lưu ý quan trọng:</strong> có một hàm trong repo không tự động chứng minh hàm đó được gọi khi chạy pipeline. Ví dụ, hàm StandardScaler hiện có trong cleaner, nhưng chưa thấy lời gọi của nó bên trong lam_sach_toan_dien().</div>
+<div id="auditItems"></div>
+<h3 style="margin-top:24px">Tóm tắt để luyện nói</h3>
+<div class="field" style="margin:10px 0"><label for="summary">Trong 60–90 giây, hãy mô tả pipeline từ dữ liệu gốc đến đầu ra, nêu tên hàm và lý do của mỗi bước.</label><textarea id="summary" placeholder="Ví dụ: tai_du_lieu_uci() → ...; bước nào đang có bằng chứng, bước nào cần xác minh..."></textarea></div>
+<div class="field" style="margin:10px 0"><label for="weakness">Phần bạn chưa chắc hoặc cần hỏi thành viên phụ trách</label><textarea id="weakness" placeholder="Ghi thuật toán, tham số, code, hoặc điểm chưa thống nhất giữa notebook và pipeline."></textarea></div>
+<div class="actions"><button id="exportBtn" type="button">Tải câu trả lời thành file .txt</button><button id="copyBtn" type="button" class="secondary">Tạo bản tóm tắt để sao chép</button></div>
+<textarea id="exportPreview" aria-label="Bản tóm tắt xuất ra" hidden style="margin-top:12px"></textarea>
+</section>
+
+<section class="panel">
+<h2>Phần C — Bộ câu hỏi vấn đáp để tập với HLV</h2>
+<p>Trả lời thành tiếng theo cấu trúc: <strong>mục đích → phương pháp → vị trí code/tham số → kết quả quan sát → hạn chế</strong>. Đừng trả lời “nhóm em dùng thuật toán X” nếu chưa tìm được dòng code hoặc đầu ra chứng minh.</p>
+<ol>
+<li>Nhóm đã kiểm tra completeness, duplicate, validity và consistency bằng câu lệnh nào? Kết quả kiểm tra được lưu ở đâu?</li>
+<li>Trong pipeline chính, vì sao nhóm chọn capping theo phân vị 1%–99%? Hàm nào thực hiện và bao nhiêu đặc trưng hóa lý được xử lý?</li>
+<li>Repo có hàm phát hiện outlier theo IQR. IQR được tính thế nào, và vì sao nó khác ngưỡng capping thực sự trong lam_sach_toan_dien()?</li>
+<li>Nhóm có xóa dòng thiếu/trùng lặp không? Đưa ra bằng chứng từ dữ liệu đầu vào, tham số loai_bo_trung_lap và đầu ra.</li>
+<li>StandardScaler tạo ra đại lượng gì? Nó được gọi ở đâu, scaler có được lưu để biến đổi dữ liệu mới không, và có rủi ro data leakage nếu fit trước train/test split không?</li>
+<li>Vì sao có hai ngưỡng phân lớp: quality ≥ 6.5 trong cleaner và quality ≥ 7 trong notebook? Cuối cùng nhóm chọn định nghĩa nào cho báo cáo?</li>
+<li>ANOVA và Kruskal–Wallis kiểm tra giả thuyết gì? Khi p-value nhỏ hơn 0.05, điều đó có chứng minh quan hệ nhân quả không?</li>
+<li>Repo hiện chứng minh đã huấn luyện mô hình, chia train/test, tính F1/ROC-AUC hoặc dùng SMOTE chưa? Hãy chỉ ra file và đoạn code, hoặc nói rõ nếu chưa.</li>
+<li>Nhóm đã tích hợp vang đỏ với vang trắng chưa? Trường loai_ruou được thêm để làm gì, và dataset nào thực sự được các notebook phân tích?</li>
+<li>Repo có PCA hoặc phương pháp giảm chiều nào đang chạy không? Nếu không, vì sao không nên đưa PCA vào slide như một việc đã làm?</li>
+<li>Biểu đồ nào giúp thấy phân phối, outlier, tương quan và khác biệt giữa các nhóm? Khi trình bày, làm thế nào để tránh khẳng định tương quan là nhân quả?</li>
+<li>Những dữ liệu bất thường nào được coi là outlier nhưng vẫn có thể là giá trị hóa học hợp lệ? Nhóm bảo toàn kích thước mẫu bằng cách nào và giới hạn của lựa chọn đó là gì?</li>
+</ol>
+<div class="footer">Tài liệu ôn tập được tạo cho repo BomRuou---Nhom-6. Phần trực quan hóa bám theo tài liệu INFO3020 Week 7 đã cung cấp: chọn biểu đồ theo câu hỏi, ưu tiên vị trí/độ dài để so sánh, tránh biểu đồ gây hiểu lầm và viết tiêu đề nêu phát hiện.</div>
+</section>
+</main>
+<script>
+const questions = [
+{topic:"Chất lượng dữ liệu",q:"Một đợt kiểm tra chất lượng dữ liệu tốt nên làm gì trước khi quyết định xóa hoặc sửa dữ liệu?",o:["Đếm thiếu dữ liệu, trùng lặp, kiểu dữ liệu, phạm vi hợp lệ và tính nhất quán trước khi chọn biện pháp.","Xóa ngay tất cả các dòng có giá trị khác trung bình.","Chuẩn hóa mọi cột trước khi xem kiểu dữ liệu.","Chạy mô hình rồi chỉ giữ các dòng dự đoán sai."],a:0,e:"Data audit cần lượng hóa vấn đề trước khi xử lý. Mỗi quyết định nên có lý do và được ghi lại; thiếu dữ liệu, trùng lặp, giá trị ngoài miền và mâu thuẫn giữa các cột là các vấn đề khác nhau."},
+{topic:"Missing data",q:"Nếu kiểm tra cho thấy một cột không có giá trị thiếu, lựa chọn hợp lý nhất là gì?",o:["Điền median để chắc chắn dữ liệu đồng nhất.","Không cần impute cột đó; ghi lại kết quả kiểm tra và tiếp tục các bước cần thiết.","Xóa 10% số dòng để dữ liệu cân bằng.","Thay mọi giá trị bằng 0."],a:1,e:"Không nên biến đổi dữ liệu vô cớ. Nếu thiếu dữ liệu xuất hiện, hãy chọn drop/imputation theo nguyên nhân, kiểu dữ liệu và mức độ thiếu; median là một lựa chọn chứ không phải quy tắc bắt buộc."},
+{topic:"Outlier · IQR",q:"Theo quy tắc IQR thông dụng, một điểm bị gắn cờ là ngoại lai khi:",o:["Nó lớn hơn trung bình của toàn bộ dữ liệu.","Nó nhỏ hơn Q1 − 1.5×IQR hoặc lớn hơn Q3 + 1.5×IQR.","Nó khác median đúng một đơn vị.","Nó nằm trong 1% đến 99% phân vị."],a:1,e:"IQR = Q3 − Q1. Cận dưới Q1 − 1.5×IQR, cận trên Q3 + 1.5×IQR. Đây là quy tắc gắn cờ, không tự động chứng minh một điểm là lỗi."},
+{topic:"Outlier và noise",q:"Phân biệt nào đúng nhất giữa outlier và noise?",o:["Hai thuật ngữ luôn có nghĩa giống nhau.","Outlier là điểm xa phần lớn phân phối; noise là biến thiên/lỗi không mang tín hiệu hữu ích. Một outlier có thể là quan sát hợp lệ.","Noise luôn có giá trị rất lớn.","Outlier luôn phải bị xóa."],a:1,e:"Cần kiểm tra nguồn gốc và ý nghĩa miền chuyên môn. Giá trị hóa học cực đoan có thể là thực, trong khi nhiễu là sai số đo/ghi nhận hoặc biến thiên gây khó học."},
+{topic:"Consistency",q:"Ví dụ điển hình của lỗi consistency/validity là gì?",o:["Một hàng có nồng độ cồn cao nhưng thực sự đo được như vậy.","Cột nhiệt độ trộn Celsius và Fahrenheit nhưng không ghi đơn vị; hoặc nhãn chất lượng trái với quy tắc đã công bố.","Một phân phối có đuôi phải dài.","Một mẫu có giá trị khác median."],a:1,e:"Tính nhất quán liên quan đơn vị, định dạng, mã nhãn và quy tắc giữa các trường/bản ghi. Cần xác định miền hợp lệ và quy tắc chuyển đổi trước khi sửa."},
+{topic:"Thống kê mô tả",q:"Với phân phối lệch phải và có vài giá trị cực lớn, thống kê trung tâm nào thường bền vững hơn?",o:["Mean vì nó bỏ qua các giá trị lớn.","Median vì ít nhạy với độ lớn của các điểm cực trị.","Maximum vì nó đại diện tốt nhất cho mẫu.","Standard deviation vì nó luôn bằng median."],a:1,e:"Mean sử dụng mọi độ lớn nên bị kéo bởi cực trị. Median dựa trên thứ tự và thường bền vững hơn. Nên xem thêm IQR, histogram/boxplot và ngữ cảnh."},
+{topic:"Xác suất có điều kiện",q:"Với P(B) > 0, công thức đúng của xác suất có điều kiện P(A|B) là:",o:["P(A)+P(B).","P(A∩B)/P(B).","P(A)/P(B∩A).","P(A)×P(B) trong mọi trường hợp."],a:1,e:"P(A|B)=P(A∩B)/P(B). Chỉ khi A và B độc lập mới có P(A∩B)=P(A)P(B). Đây là nền tảng để diễn giải xác suất có điều kiện."},
+{topic:"Suy luận thống kê",q:"Một kiểm định cho p-value = 0.03. Diễn giải nào đúng nhất khi dùng mức ý nghĩa 0.05?",o:["Xác suất giả thuyết không đúng là 3%.","Nếu giả thuyết không và các giả định của kiểm định đúng, xác suất quan sát kết quả ít nhất cực đoan như vậy là 3%; kết quả có ý nghĩa ở mức 0.05.","Kết quả chắc chắn có ý nghĩa thực tiễn lớn.","Có 97% xác suất giả thuyết đối đúng."],a:1,e:"p-value không phải xác suất giả thuyết không đúng, cũng không đo kích thước tác động. Cần báo cáo thêm effect size, khoảng tin cậy và giả định kiểm định."},
+{topic:"ANOVA · Kruskal–Wallis",q:"Khi cần so sánh ba nhóm độc lập, nhận định nào hợp lý?",o:["ANOVA kiểm tra khác biệt trung bình dưới các giả định phù hợp; Kruskal–Wallis là lựa chọn phi tham số dựa trên thứ hạng.","Cả hai đều chứng minh quan hệ nhân quả.","Kruskal–Wallis chỉ dùng cho dữ liệu văn bản.","ANOVA chỉ so sánh đúng hai nhóm."],a:0,e:"ANOVA thường kiểm tra sự bằng nhau của các trung bình và có giả định về phần dư/phương sai. Kruskal–Wallis dùng thứ hạng và thường phù hợp khi không muốn dựa vào giả định phân phối của ANOVA. Kiểm định tổng thể không cho biết nhóm nào khác nếu chưa làm bước tiếp theo."},
+{topic:"Tương quan",q:"Nếu alcohol có tương quan dương với quality, kết luận nào an toàn nhất?",o:["Tăng alcohol chắc chắn gây ra quality tăng.","Trong dữ liệu đang phân tích, alcohol và quality có xu hướng biến thiên cùng chiều; chưa đủ để kết luận nhân quả.","Hai biến hoàn toàn độc lập.","Alcohol là nguyên nhân duy nhất của quality."],a:1,e:"Tương quan có thể chịu ảnh hưởng của biến gây nhiễu, cấu trúc nhóm và cách lấy mẫu. Hãy nói 'liên hệ/tương quan' thay vì 'gây ra' nếu thiết kế nghiên cứu không hỗ trợ nhân quả."},
+{topic:"Chuẩn hóa thang đo",q:"StandardScaler thường biến đổi một đặc trưng số thành dạng nào?",o:["Giá trị luôn nằm trong [0,1].","Trừ mean huấn luyện và chia cho độ lệch chuẩn huấn luyện; kết quả thường có mean gần 0, độ lệch chuẩn gần 1.","Biến mọi biến thành biến nhị phân.","Tạo thêm các mẫu dữ liệu tổng hợp."],a:1,e:"StandardScaler là standardization, khác MinMax scaling. Khi xây mô hình phải fit scaler trên training set rồi dùng transform cho validation/test và dữ liệu mới."},
+{topic:"Normalization · MinMax",q:"Cách diễn giải nào phân biệt đúng MinMaxScaler và StandardScaler?",o:["MinMax thường ánh xạ về một khoảng như [0,1]; StandardScaler chuẩn hóa theo mean và độ lệch chuẩn.","Hai phương pháp luôn tạo giá trị giống nhau.","StandardScaler luôn loại bỏ outlier.","MinMaxScaler tự động làm phân phối Gaussian."],a:0,e:"MinMax phụ thuộc min/max trong dữ liệu fit và nhạy với cực trị. StandardScaler không ép mọi điểm vào khoảng cố định và cũng không tự loại outlier."},
+{topic:"Biến đổi dữ liệu",q:"Với biến dương có phân phối lệch phải mạnh, phép biến đổi nào có thể được thử nghiệm để giảm độ lệch?",o:["Log hoặc log1p khi phù hợp với miền giá trị; sau đó kiểm tra lại phân phối.","Đổi toàn bộ số thành tên danh mục.","Cộng một hằng số rất lớn mà không đánh giá.","Xóa cột chỉ vì phân phối không chuẩn."],a:0,e:"Biến đổi log có thể nén đuôi phải nhưng cần xét giá trị 0/âm, khả năng diễn giải và mục tiêu mô hình. Không nên biến đổi chỉ vì muốn biểu đồ trông đẹp."},
+{topic:"Giảm chiều",q:"PCA chủ yếu làm gì?",o:["Tạo nhãn mục tiêu bằng cách chia quality thành lớp.","Tìm các thành phần trực giao nắm giữ phương sai lớn trong dữ liệu đã biến đổi/được scale phù hợp.","Xử lý missing values theo median.","Cân bằng lớp bằng cách tạo mẫu tổng hợp."],a:1,e:"PCA là kỹ thuật giảm chiều không giám sát. Các thành phần là tổ hợp tuyến tính của biến ban đầu; khả năng tóm tắt dữ liệu tăng nhưng tính diễn giải theo từng biến gốc có thể giảm."},
+{topic:"Tích hợp dữ liệu",q:"Khi gộp dữ liệu từ hai nguồn, việc nào quan trọng nhất?",o:["Nối bảng ngay cả khi cột và đơn vị khác nhau.","Đối chiếu schema, đơn vị, định nghĩa, khóa, bản ghi trùng và nguồn gốc; sau đó mới nối hàng hoặc join.","Xóa cột nguồn để không ai biết dữ liệu đến từ đâu.","Chỉ kiểm tra số hàng sau khi gộp."],a:1,e:"Concatenate/append thường nối hàng; join kết hợp theo khóa. Cần kiểm tra định nghĩa cột và chất lượng sau tích hợp, không chỉ kiểm tra kích thước."},
+{topic:"Mô hình hóa dữ liệu",q:"Trong bài toán phân loại, đâu là feature và đâu là target?",o:["Feature là đầu vào dùng dự đoán; target là nhãn cần dự đoán.","Target là mọi cột có kiểu số.","Feature phải luôn là biến mục tiêu.","Không cần tách target khỏi feature."],a:0,e:"Cần xác định target rõ ràng và loại nó khỏi X. Data leakage xảy ra khi đầu vào chứa thông tin trực tiếp hoặc gián tiếp tiết lộ nhãn, khiến kết quả đánh giá lạc quan giả."},
+{topic:"Đánh giá mô hình",q:"Vì sao nên chia train/test trước khi fit các bước tiền xử lý có học tham số như scaler?",o:["Để scaler học mean/standard deviation từ test set.","Để tránh rò rỉ thông tin: fit trên train, rồi chỉ transform test bằng tham số đã học.","Vì test set phải lớn hơn toàn bộ dữ liệu.","Để tăng số feature tự động."],a:1,e:"Pipeline tiền xử lý phải được fit trong training data (hoặc trong từng fold khi cross-validation). Trong notebook, fit_transform(X) trước khi tách train/test sẽ là điều cần rà soát nếu dữ liệu đó được dùng để đánh giá mô hình."},
+{topic:"Chọn biểu đồ · Week 7",q:"Cần xem phân phối của một biến số đơn lẻ, lựa chọn trực quan nào phù hợp?",o:["Histogram, KDE, boxplot hoặc ECDF tùy câu hỏi.","Pie chart với một lát.","Line chart nối các danh mục không có thứ tự.","Heatmap bất kỳ mà không có nhãn."],a:0,e:"Tài liệu Week 7 gợi ý histogram/KDE/boxplot/ECDF cho phân phối. Histogram phụ thuộc bin width; KDE làm mượt và có thể che khoảng trống hoặc đỉnh."},
+{topic:"Trực quan hóa · Week 7",q:"Theo nguyên tắc trong tài liệu Week 7, cột bar chart so sánh độ lớn nên xử lý trục y thế nào?",o:["Cắt trục ở mức sát giá trị lớn nhất để khác biệt trông rõ hơn.","Bắt đầu tại 0 để độ dài cột biểu diễn độ lớn một cách trung thực.","Đảo trục y tùy ý.","Ẩn đơn vị và nhãn trục."],a:1,e:"Tài liệu nhấn mạnh bar chart phải bắt đầu từ 0; line chart có thể không cần bắt đầu từ 0 nếu đang mã hóa thay đổi. Trục bị cắt có thể khuếch đại chênh lệch thị giác."},
+{topic:"Trực quan hóa · Week 7",q:"Trong heatmap tương quan, vì sao bảng màu phân kỳ quanh 0 thường phù hợp?",o:["Vì tương quan luôn dương.","Vì 0 là điểm giữa có ý nghĩa: tương quan âm và dương nằm ở hai phía.","Vì màu sắc thay thế được nhãn dữ liệu.","Vì mọi heatmap phải dùng cùng một bảng màu."],a:1,e:"Với tương quan trong [-1,1], dùng thang phân kỳ có tâm tại 0 giúp tách dấu âm/dương. Cần chú giải màu và tránh dùng hue như thể nó biểu diễn độ lớn theo thứ tự."},
+{topic:"Repo · phát hiện/capping outlier",q:"Trong hàm lam_sach_toan_dien() của src/cleaner.py, capping mặc định đang dựa trên cách nào?",o:["IQR với cận Q1−1.5×IQR và Q3+1.5×IQR.","Phân vị 1% và 99% cho các cột trong CAC_COT_HOA_LY.","Z-score tuyệt đối lớn hơn 3.","Không có bước xử lý outlier."],a:1,e:"Hàm xu_ly_ngoai_lai_capping() mặc định dùng phan_vi_duoi=0.01 và phan_vi_tren=0.99 rồi clip các cột số. Hàm detect_outliers_iqr() cũng có mặt, và notebook cũ có capping theo IQR; không nên nhầm hai quy trình."},
+{topic:"Repo · chuẩn hóa",q:"Điều gì được xác nhận khi đọc cleaner.py và notebook 01_eda_and_data_cleaning.ipynb?",o:["Pipeline lam_sach_toan_dien() luôn gọi StandardScaler và lưu X_scaled vào Feather.","Có hàm StandardScaler và notebook tạo X_scaled, nhưng chưa thấy lam_sach_toan_dien() gọi hàm scale; notebook lưu df_processed chứ không phải X_scaled ở bước lưu CSV.","Repo có PCA và SMOTE đang chạy.","StandardScaler loại bỏ mọi outlier."],a:1,e:"Hàm chuan_hoa_thang_do_standard_scaler() tồn tại. Notebook tạo X_scaled, nhưng đoạn lưu ghi df_processed; run_pipeline gọi lam_sach_toan_dien(). Vì vậy hãy phân biệt hàm hiện có với pipeline chính và đầu ra thực sự được lưu."},
+{topic:"Repo · trùng lặp",q:"Với lời gọi lam_sach_toan_dien(df_goc, loai_bo_trung_lap=False, ...), điều gì xảy ra với dữ liệu trùng lặp?",o:["Luôn xóa tất cả dòng trùng.","Kiểm tra và báo số dòng trùng; nhánh drop_duplicates() chỉ chạy nếu loai_bo_trung_lap=True.","Tự động dùng SMOTE để xóa trùng.","Bỏ qua kiểm tra trùng lặp hoàn toàn."],a:1,e:"kiem_tra_chat_luong_du_lieu() đếm bản ghi trùng. Nhưng tham số mặc định loai_bo_trung_lap=False nên pipeline gọi với mặc định chỉ báo cáo, không xóa chúng."},
+{topic:"Repo · phân lớp",q:"Theo src/cleaner.py, hàm tao_bien_phan_bac_chat_luong() tạo nhãn 3 lớp theo ngưỡng nào?",o:["Kém ≤4; Trung bình >4 và <6.5; Thượng hạng ≥6.5.","Kém <3; Trung bình 3–8; Thượng hạng >8.","Kém ≤5; Thượng hạng ≥7, không có lớp ở giữa.","Luôn dùng ngưỡng quality ≥7 cho mọi nhãn."],a:0,e:"Hàm cleaner sử dụng 4.0 và 6.5; nó còn tạo ma_bac_chat_luong và chat_luong_cao. Notebook EDA cũ có target nhị phân quality ≥7, nên cần thống nhất định nghĩa target trong báo cáo cuối."},
+{topic:"Repo · tích hợp",q:"Hàm tai_du_lieu_uci() được viết để làm gì?",o:["Tải riêng vang đỏ, huấn luyện Random Forest rồi đánh giá F1.","Tải vang đỏ và vang trắng từ UCI, thêm cột loai_ruou, ghép hai bảng theo hàng và lưu CSV thô.","Thực hiện PCA trên 11 đặc trưng.","Cân bằng dữ liệu bằng SMOTE."],a:1,e:"Trong data_loader.py, df_do và df_trang được đọc riêng, thêm nhãn nguồn loai_ruou, rồi pd.concat(..., ignore_index=True). Repo cũng có các tệp dữ liệu vang đỏ; cần xác nhận notebook/pipeline cụ thể dùng nguồn nào."},
+{topic:"Repo · thống kê",q:"run_pipeline.py dùng kiểm định nào để so sánh các chỉ số hóa lý giữa ba bậc chất lượng?",o:["ANOVA một chiều và Kruskal–Wallis.","Chỉ dùng PCA và SMOTE.","Chỉ dùng accuracy của Random Forest.","Không thực hiện thống kê."],a:0,e:"chay_doi_sanh_thong_ke() gọi scipy.stats.f_oneway và scipy.stats.kruskal theo từng cột hóa lý, ghi thống kê và p-value vào báo cáo CSV. Kết quả cho thấy bằng chứng khác biệt, không chứng minh quan hệ nhân quả."}
+];
+
+const audit = [
+{title:"Tải và tích hợp dữ liệu",evidence:"src/data_loader.py: tai_du_lieu_uci() đọc vang đỏ + vang trắng từ UCI, thêm loai_ruou rồi pd.concat(...). Repo cũng có data/raw/winequality-red.csv; cần nói rõ luồng nào thực sự được chạy cho báo cáo.",prompt:"Tên file/hàm được chạy; dataset cuối gồm vang đỏ, vang trắng hay chỉ vang đỏ?"},
+{title:"Missing values",evidence:"src/cleaner.py: kiem_tra_chat_luong_du_lieu() dùng isnull().sum(). Nếu thiếu, lam_sach_toan_dien() điền median theo nhóm loai_ruou; nếu không thiếu thì không cần impute.",prompt:"Có bao nhiêu giá trị thiếu thực tế? Có đầu ra/log nào chứng minh không?"},
+{title:"Consistency và validation",evidence:"Có chuẩn hóa tên cột và kiểm tra missing/duplicate. Chưa thấy một bộ kiểm tra miền hợp lệ/đơn vị toàn diện rõ ràng trong pipeline chính.",prompt:"Nhóm đã kiểm tra kiểu dữ liệu, miền giá trị, đơn vị hoặc mâu thuẫn logic bằng code nào?"},
+{title:"Trùng lặp",evidence:"kiem_tra_chat_luong_du_lieu() đếm duplicate; drop_duplicates() chỉ chạy khi loai_bo_trung_lap=True. run_pipeline.py gọi loai_bo_trung_lap=False.",prompt:"Nhóm có chủ động xóa dòng trùng không? Nếu không, vì sao và đã đánh giá ảnh hưởng thế nào?"},
+{title:"Outlier: IQR và capping",evidence:"detect_outliers_iqr() dùng Q1/Q3 và 1.5×IQR. Nhưng capping trong lam_sach_toan_dien() gọi xu_ly_ngoai_lai_capping() với phân vị 1%–99%. Notebook 01 dùng IQR clip, nên hai luồng khác nhau.",prompt:"Luồng nào là luồng chính được báo cáo? Nêu hàm, công thức, cột và ngưỡng cụ thể."},
+{title:"StandardScaler",evidence:"src/cleaner.py có chuan_hoa_thang_do_standard_scaler(). Notebook 01 tạo X_scaled bằng fit_transform(X), nhưng lưu df_processed; lam_sach_toan_dien() không gọi hàm scale này.",prompt:"Dữ liệu cuối cùng được lưu có thật sự scale không? Scaler có được lưu để dùng trên dữ liệu mới không?"},
+{title:"Biến đổi target / phân lớp",evidence:"cleaner.py tạo 3 lớp: quality ≤4, khoảng giữa, và quality ≥6.5; biến nhị phân chat_luong_cao dùng ngưỡng 6.5. Notebook 01 tạo target với ngưỡng quality ≥7.",prompt:"Định nghĩa target cuối cùng trong báo cáo là gì và vì sao ngưỡng này được chọn?"},
+{title:"Giảm chiều",evidence:"Tìm kiếm code repo không thấy bằng chứng rõ về PCA hoặc thuật toán giảm chiều đang chạy. Không có nghĩa là nhóm không thể đã thử ở ngoài repo; cần xác nhận.",prompt:"Có sử dụng PCA hoặc feature selection nào không? Nếu có, nêu file, code và số chiều trước/sau."},
+{title:"Cân bằng dữ liệu / SMOTE",evidence:"README nêu SMOTE như một khả năng trong kế hoạch, nhưng chưa thấy mã SMOTE ở các file được kiểm tra.",prompt:"SMOTE đã thực sự chạy chưa? Nếu có, nó chỉ được fit trên training data hay áp dụng trước khi chia train/test?"},
+{title:"Huấn luyện và đánh giá mô hình",evidence:"README liệt kê các mô hình như tech stack/kế hoạch, nhưng cây file hiện tại chưa cho thấy train_test_split, classifier.fit hoặc báo cáo Accuracy/F1/ROC-AUC trong code đã tìm thấy.",prompt:"Mô hình nào đã huấn luyện thật? Hãy chỉ ra file, tham số, cách chia tập và metric/đầu ra."},
+{title:"Kiểm định thống kê",evidence:"run_pipeline.py: chay_doi_sanh_thong_ke() chạy scipy.stats.f_oneway và scipy.stats.kruskal với từng cột hóa lý giữa ba bậc; xuất data/bao_cao_doi_sanh_thong_ke.csv.",prompt:"Giả thuyết không là gì? p-value <0.05 có nghĩa gì và không có nghĩa gì?"},
+{title:"Trực quan hóa",evidence:"src/visualizer.py dùng Matplotlib/Seaborn; run_pipeline.py gọi ve_tat_ca_bieu_do() và thông báo xuất biểu đồ độ phân giải 300 DPI. assets chứa boxplot, phân phối và heatmap tương quan.",prompt:"Ba biểu đồ quan trọng nhất là gì, mỗi biểu đồ trả lời câu hỏi nào, và kết luận nào được dữ liệu hỗ trợ?"},
+{title:"Đầu ra và khả năng tái lập",evidence:"data_loader.py lưu Feather; run_pipeline.py lưu báo cáo thống kê CSV. Cần xác minh các tệp sinh ra có được cập nhật trong lần chạy cuối và dependency Feather đã được cài.",prompt:"Chạy lệnh nào để tái tạo đầu ra? Đầu ra nào được commit, đầu ra nào chỉ phát sinh khi chạy?"}
+];
+
+const questionsEl = document.getElementById("questions");
+questionsEl.innerHTML = questions.map((item,i) => '<article class="question" id="qcard'+i+'"><div class="qmeta"><span class="topic">'+item.topic+'</span><span>Câu '+(i+1)+' / '+questions.length+'</span></div><h3>'+item.q+'</h3><div class="options">'+item.o.map((opt,j)=>'<label class="option"><input type="radio" name="q'+i+'" value="'+j+'"><span>'+opt+'</span></label>').join("")+'</div><div class="feedback" id="feedback'+i+'" hidden></div></article>').join("");
+
+document.getElementById("auditItems").innerHTML = audit.map((item,i) => '<div class="audit-item"><div class="audit-title">'+(i+1)+". "+item.title+'</div><div class="evidence"><strong>Bằng chứng trong repo:</strong> '+item.evidence+'</div><div class="fieldrow"><div class="field"><label for="status'+i+'">Trạng thái nhóm xác nhận</label><select id="status'+i+'"><option value="Chưa xác minh">Chưa xác minh</option><option value="Có trong pipeline chính">Có trong pipeline chính</option><option value="Có trong notebook riêng">Có trong notebook riêng</option><option value="Có hàm nhưng pipeline chính chưa gọi">Có hàm nhưng pipeline chính chưa gọi</option><option value="Chỉ có trong README/kế hoạch">Chỉ có trong README/kế hoạch</option><option value="Không áp dụng/không dùng">Không áp dụng/không dùng</option></select></div><div class="field"><label for="proof'+i+'">Trả lời / bằng chứng code</label><textarea id="proof'+i+'" placeholder="'+item.prompt+'"></textarea></div></div><p class="small">'+item.prompt+'</p></div>').join("");
+
+function updateProgress(){
+ const done = questions.filter((item,i)=>document.querySelector('input[name="q'+i+'"]:checked')).length;
+ document.getElementById("progressBar").style.width = (done/questions.length*100)+"%";
+ document.getElementById("progressText").textContent = "Đã trả lời "+done+" / "+questions.length+" câu.";
+}
+questionsEl.addEventListener("change",updateProgress);
+document.getElementById("gradeBtn").addEventListener("click",function(){
+ let score=0,answered=0;
+ questions.forEach((item,i)=>{
+  const selected=document.querySelector('input[name="q'+i+'"]:checked');
+  const card=document.getElementById("qcard"+i);
+  const feedback=document.getElementById("feedback"+i);
+  card.classList.remove("correct","wrong");
+  feedback.hidden=false;
+  if(selected){answered++;if(Number(selected.value)===item.a){score++;card.classList.add("correct");feedback.className="feedback good";feedback.innerHTML="<strong>Đúng.</strong> "+item.e;}else{card.classList.add("wrong");feedback.className="feedback bad";feedback.innerHTML="<strong>Chưa chính xác.</strong> Đáp án đúng: "+item.o[item.a]+". "+item.e;}}
+  else{card.classList.add("wrong");feedback.className="feedback bad";feedback.innerHTML="<strong>Chưa trả lời.</strong> Đáp án: "+item.o[item.a]+". "+item.e;}
+ });
+ const pct=Math.round(score/questions.length*100);
+ let advice=pct>=85?"Tốt: hãy chuyển sang luyện câu hỏi phản biện và giới hạn của phương pháp.":pct>=65?"Nền tảng đang hình thành: tập giải thích tại sao chọn phương pháp và khi nào không phù hợp.":"Nên ôn lại từng chủ đề, sau đó làm lại và tập giải thích đáp án bằng lời.";
+ const box=document.getElementById("scorebox");box.style.display="block";
+ box.innerHTML='<div class="score-big">'+score+' / '+questions.length+' · '+pct+'%</div><p>Bạn đã trả lời '+answered+' câu. '+advice+'</p><p class="small">Phần repo cần nắm chắc: capping 1–99% khác IQR; StandardScaler có trong module/notebook nhưng chưa được gọi trong pipeline chính; tham số loại bỏ trùng mặc định là false; ngưỡng target 6.5 và 7 khác nhau giữa các luồng.</p>';
+ box.scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+document.getElementById("clearBtn").addEventListener("click",function(){
+ questions.forEach((item,i)=>{document.querySelectorAll('input[name="q'+i+'"]').forEach(x=>x.checked=false);const c=document.getElementById("qcard"+i);c.classList.remove("correct","wrong");const f=document.getElementById("feedback"+i);f.hidden=true;f.innerHTML="";});
+ document.getElementById("scorebox").style.display="none";updateProgress();
+});
+document.getElementById("resetBtn").addEventListener("click",function(){
+ document.getElementById("clearBtn").click();
+ document.querySelectorAll("#auditItems select").forEach(x=>x.value="Chưa xác minh");
+ document.querySelectorAll("#auditItems textarea").forEach(x=>x.value="");
+ document.getElementById("summary").value="";document.getElementById("weakness").value="";document.getElementById("exportPreview").hidden=true;
+ document.getElementById("quizPanel").scrollIntoView({behavior:"smooth"});
+});
+document.getElementById("startBtn").addEventListener("click",()=>document.getElementById("quizPanel").scrollIntoView({behavior:"smooth"}));
+function makeReport(){
+ const lines=[];
+ lines.push("BAI LUYEN KHOA HOC DU LIEU - BOMRUOU NHOM 6");
+ lines.push("DIEM TRAC NGHIEM");
+ let score=0;
+ questions.forEach((item,i)=>{
+  const selected=document.querySelector('input[name="q'+i+'"]:checked');
+  const correct=selected && Number(selected.value)===item.a;
+  if(correct)score++;
+  lines.push((i+1)+". "+item.q);
+  lines.push("   Lua chon: "+(selected?item.o[Number(selected.value)]:"Chua tra loi"));
+  lines.push("   Dap an: "+item.o[item.a]);
+  lines.push("   Giai thich: "+item.e);
+ });
+ lines.push("Tong diem: "+score+"/"+questions.length+" ("+Math.round(score/questions.length*100)+"%)");
+ lines.push("");lines.push("BANG KIEM CHUNG DU AN");
+ audit.forEach((item,i)=>{
+  lines.push((i+1)+". "+item.title);
+  lines.push("   Trang thai: "+document.getElementById("status"+i).value);
+  lines.push("   Bang chung / ghi chu: "+(document.getElementById("proof"+i).value||"(chua dien)"));
+ });
+ lines.push("");lines.push("TOM TAT PIPELINE 60-90 GIAY");lines.push(document.getElementById("summary").value||"(chua dien)");
+ lines.push("");lines.push("DIEM CHUA CHAC / CAN XAC MINH");lines.push(document.getElementById("weakness").value||"(chua dien)");
+ return lines.join("\n");
+}
+document.getElementById("exportBtn").addEventListener("click",function(){
+ const blob=new Blob([makeReport()],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="ket-qua-luyen-khoa-hoc-du-lieu.txt";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+});
+document.getElementById("copyBtn").addEventListener("click",function(){
+ const preview=document.getElementById("exportPreview");preview.hidden=false;preview.value=makeReport();preview.focus();preview.select();
+ try{document.execCommand("copy");this.textContent="Đã tạo bản tóm tắt (đã thử sao chép)";}catch(e){this.textContent="Bản tóm tắt đã sẵn sàng để sao chép thủ công";}
+});
+</script>
+</body>
+</html>
