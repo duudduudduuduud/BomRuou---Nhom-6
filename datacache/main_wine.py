@@ -15,16 +15,12 @@ def main():
     print("     HỆ THỐNG PHÂN TÍCH & BƠM RƯỢU VANG TỰ ĐỘNG (NHÓM 6)     ")
     print("=============================================================\n")
     
-    # Đường dẫn file dữ liệu sau khi chạy xong EDA
     processed_file = "../data/processed/winequality-red-cleaned.csv"
     
-    # Giả lập đọc dữ liệu sạch (nếu có) để lấy mẫu test ngẫu nhiên
     df = load_processed_data(processed_file)
     
-    # Khởi tạo mô hình dự đoán từ dữ liệu phân tích hóa học
     predictor = WineQualityPredictor()
-    
-    # Thiết lập mẫu kiểm thử mặc định từ thống kê EDA (nếu không load được file)
+
     sample_wine = {
         'fixed_acidity': 7.4,
         'volatile_acidity': 0.70,
@@ -41,7 +37,7 @@ def main():
     
     if df is not None:
         print(f"[✓] Tải thành công dữ liệu sạch. Tổng số mẫu khả dụng: {len(df)}")
-        # Lấy ngẫu nhiên 1 mẫu trong tập dữ liệu để test hệ thống bơm rượu
+        
         random_row = df.sample(n=1).iloc[0]
         sample_wine = {
             'fixed_acidity': random_row['fixed acidity'],
@@ -68,7 +64,6 @@ def main():
     predicted_quality = predictor.predict(sample_wine)
     print(f"[✓] Dự đoán điểm chất lượng (Quality Score): {predicted_quality}/8")
     
-    # Dựa vào điểm chất lượng để đưa ra hành động điều khiển van bơm rượu
     print("\n--- KẾT QUẢ ĐIỀU KHIỂN HỆ THỐNG BƠM RƯỢU ---")
     if predicted_quality >= 7:
         print(f" ĐÁNH GIÁ: Rượu Thượng Hạng (Chất lượng cao).")
